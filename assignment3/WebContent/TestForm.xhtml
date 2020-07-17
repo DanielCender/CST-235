@@ -3,12 +3,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
  xmlns:h="http://java.sun.com/jsf/html"
  xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
+ 
+<h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>JSF Form Page</title>
-</head>
-<body>
- <ui:composition>
+</h:head>
+<h:body>
+ <ui:composition template="layouts/commonLayout.xhtml">
+ <ui:define name="content">
+    			
+    	
  	<!--  Simple JSF Form -->
 	<h:form>
 		<h:inputText id="firstName" required="true" value="#{user.firstName}">
@@ -21,6 +25,7 @@
 		</h:commandButton>
 	</h:form>
 	<h:messages />
+		</ui:define>
  </ui:composition>
-</body>
+</h:body>
 </html>
