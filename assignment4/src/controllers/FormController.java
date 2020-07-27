@@ -6,6 +6,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import beans.User;
+import business.MyTimerService;
 import business.OrdersBusinessInterface;
 
 @ManagedBean
@@ -13,11 +14,16 @@ import business.OrdersBusinessInterface;
 public class FormController {
 	@Inject
 	private OrdersBusinessInterface service;
+	@Inject
+	private MyTimerService timer;
 	
 	public String onSubmit(User user) {
 		FacesContext ctx = FacesContext.getCurrentInstance();
 		ctx.getExternalContext().getRequestMap().put("user", user);
 		service.test();
+		
+		timer.setTimer(5000);
+		
 		return "TestResponse.xhtml";
 	}
 	public String onFlash(User user) {
