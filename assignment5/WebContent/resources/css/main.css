@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+#header {
+	width: 100%;
+	text-align: center;
+	padding: 0 auto;
+}
+
+ #footer {
+	width: 100%;
+	text-align: center;
+	padding: 0 auto;
+}
+
+.data-table {
+	text-align: center;
+	width: 100%;
+	font-family: sans-serif;
+}
+            
+.data-table__table {
+	border: 1px solid black;
+}
+
+.data-table__table__header {
+	background-color: #4D4D4D;
+	color: white;
+}
+
+.data-table__table__row--odd {
+	background-color: cyan;
+}
+
+.data-table__table__row--even {
+	background-color: #fff;
+}

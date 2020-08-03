@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>JSF Response Page</title>
+</head>
+<h:body>
+ <ui:composition template="layouts/commonLayout.xhtml">
+ <ui:define name="content">
+	<p><h:outputText id="welcome-message" value="Hello #{user.firstName} #{user.lastName}. Your Orders are:" /></p>
+
+	<div class="data-table">
+		<h:dataTable value="#{formController.service.orders}" var="i" 
+			styleClass = "data-table__table"
+            headerClass = "data-table__table__header"
+            rowClasses = "data-table__table__row--odd,data-table__table__row--even">
+				<h:column>
+					<f:facet name="header">Order ID</f:facet>
+					#{i.orderId}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Product Name</f:facet>
+					#{i.productName}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Price</f:facet>
+					#{i.price}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Quantity</f:facet>
+					#{i.quantity}
+				</h:column>
+		</h:dataTable>
+	</div>
+	<hr />
+	<h:button value="Back" outcome="TestForm" />
+</ui:define>
+ </ui:composition>
+</h:body>
+</html>
